@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des articles</title>
+</head>
+<body>
+    <h1>Liste des articles</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong> par {{ post.author }}<br>
+                <a href="{% url 'Posts:updatehtml' post.id %}">Modifier</a> |
+                <a href="{% url 'Posts:deletehtml' post.id %}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'Posts:createhtml' %}">Créer un nouvel article</a>
+</body>
+</html>
